@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Form with Multiple Objectives, Actions, and Subactions</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+        }
+        select, input[type="checkbox"] {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form id="myForm">
+        <label for="goal">Select a Goal:</label>
+        <select id="goal" name="goal">
+            <option value="goal1">Goal 1</option>
+            <option value="goal2">Goal 2</option>
+            <option value="goal3">Goal 3</option>
+        </select>
+
+        <div id="objectives">
+            <!-- Objective checkboxes will be populated dynamically -->
+        </div>
+
+        <div id="actionSections">
+            <!-- Action and subaction sections will be added dynamically -->
+        </div>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        const data = {
+            goal1: {
+                objectives: {
+                    objective1: {
+                        actions: {
+                            action1: ["subaction1", "subaction2"],
+                            action2: ["subaction3", "subaction4"],
+                        },
+                    },
+                    objective2: {
+                        actions: {
+                            action3: ["subaction5", "subaction6"],
+                        },
+                    },
+                },
+            },
+            goal2: {
+                objectives: {
+                    objective3: {
+                        actions: {
+                            action4: ["subaction7", "subaction8"],
+                        },
+                    },
+                },
+            },
+            goal3: {
+                objectives: {
+                    objective4: {
+                        actions: {
+                            action5: ["subaction9", "subaction10"],
+                        },
+                    },
+                },
+            },
+        };
+
+        function populateObjectives() {
+            const goalSelect = document.getElementById("goal");
+            const objectivesDiv = document.getElementById("objectives");
+            const selectedGoal = goalSelect.value;
+            const objectives = data[selectedGoal].objectives;
+
+            objectivesDiv.innerHTML = ""; // Clear existing checkboxes
+
+            for (const objective in objectives) {
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.name = "objective";
+                checkbox.value = objective;
+                checkbox.id = `objective_${objective}`;
+
+                const label = document.createElement("label");
+                label.textContent = objective;
+                label.setAttribute("for", `objective_${objective}`);
+
+                objectivesDiv.appendChild(checkbox);
+                objectivesDiv.appendChild(label);
+            }
+        }
+
+        function addObjectiveSections() {
+            const objectivesCheckboxes = document.querySelectorAll('input[name="objective"]:checked');
+            const actionSectionsDiv = document.getElementById("actionSections");
+            actionSectionsDiv.innerHTML = ""; // Clear existing sections
+            const selectedGoal = document.getElementById("goal").value;
+
+            objectivesCheckboxes.forEach((checkbox) => {
+                const selectedObjective = checkbox.value;
+                const objectiveSection = document.createElement("div");
+
+                const actionsSelect = document.createElement("select");
+                actionsSelect.name = `action_${selectedObjective}`;
+                actionsSelect.id = `action_${selectedObjective}`;
+
+                for (const action in data[selectedGoal].objectives[selectedObjective].actions) {
+                    const option = document.createElement("option");
+                    option.value = action;
+                    option.textContent = action;
+                    actionsSelect.appendChild(option);
+                }
+
+                const subactionsSelect = document.createElement("select");
+                subactionsSelect.name = `subaction_${selectedObjective}`;
+                subactionsSelect.id = `subaction_${selectedObjective}`;
+
+                const selectedAction = actionsSelect.value;
+                const subactions = data[selectedGoal].objectives[selectedObjective].actions[selectedAction];
+
+                for (const subaction of subactions) {
+                    const option = document.createElement("option");
+                    option.value = subaction;
+                    option.textContent = subaction;
+                    subactionsSelect.appendChild(option);
+                }
+
+                const objectiveLabel = document.createElement("label");
+                objectiveLabel.textContent = `Objective: ${selectedObjective}`;
+                objectiveSection.appendChild(objectiveLabel);
+                objectiveSection.appendChild(actionsSelect);
+                objectiveSection.appendChild(subactionsSelect);
+
+                actionSectionsDiv.appendChild(objectiveSection);
+            });
+        }
+
+        document.getElementById("goal").addEventListener("change", populateObjectives);
+        document.getElementById("goal").addEventListener("change", addObjectiveSections);
+        document.getElementById("objectives").addEventListener("change", addObjectiveSections);
+
+        // Initialize the form
+        populateObjectives();
+    </script>
+</body>
+</html>

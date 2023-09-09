@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Form with Multiple Objectives, Actions, and Subactions</title>
+</head>
+<body>
+    <!-- Add Another Goal button -->
+    <button id="addGoalButton">Add Another Goal</button>
+
+    <!-- Initial Form -->
+    <form id="myForm">
+        <label for="goal">Select a Goal:</label>
+        <select id="goal" name="goal">
+            <option value="goal1">Goal 1</option>
+            <option value="goal2">Goal 2</option>
+            <option value="goal3">Goal 3</option>
+        </select>
+
+        <div id="objectives">
+            <!-- Objective checkboxes will be populated dynamically -->
+        </div>
+
+        <div id="actionSections">
+            <!-- Action and subaction sections will be added dynamically -->
+        </div>
+
+        <input type="submit" value="Submit">
+    </form>
+
+
+    <script>
+        // Dummy data representing goals, objectives, actions, and subactions
+        const data = {
+            goal1: {
+                objectives: {
+                    objective1: {
+                        actions: {
+                            action1: ["subaction1", "subaction2"],
+                            action2: ["subaction3", "subaction4"],
+                        },
+                    },
+                    objective2: {
+                        actions: {
+                            action3: ["subaction5", "subaction6"],
+                        },
+                    },
+                },
+            },
+            goal2: {
+                objectives: {
+                    objective3: {
+                        actions: {
+                            action4: ["subaction7", "subaction8"],
+                        },
+                    },
+                },
+            },
+            goal3: {
+                objectives: {
+                    objective4: {
+                        actions: {
+                            action5: ["subaction9", "subaction10"],
+                        },
+                    },
+                },
+            },
+        };
+
+        // Function to populate the objectives checkboxes based on the selected goal
+        function populateObjectives(formId) {
+            const goalSelect = document.getElementById(`goal_${formId}`);
+            const objectivesDiv = document.getElementById(`objectives_${formId}`);
+            const selectedGoal = goalSelect.value;
+
+            const objectives = data[selectedGoal].objectives;
+
+            objectivesDiv.innerHTML = ""; // Clear existing checkboxes
+
+            for (const objective in objectives) {
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.name = `objective_${formId}`;
+                checkbox.value = objective;
+                checkbox.id = `objective_${formId}_${objective}`;
+                const label = document.createElement("label");
+                label.textContent = objective;
+                label.setAttribute("for", `objective_${formId}_${objective}`);
+                objectivesDiv.appendChild(checkbox);
+                objectivesDiv.appendChild(label);
+            }
+        }
+
+        // Function to add action and subaction sections for each selected objective
+        function addObjectiveSections(formId) {
+            const objectivesCheckboxes = document.querySelectorAll(`input[name="objective_${formId}"]:checked`);
+            const actionSectionsDiv = document.getElementById(`actionSections_${formId}`);
+
+            actionSectionsDiv.innerHTML = ""; // Clear existing sections
+
+            const selectedGoal = document.getElementById(`goal_${formId}`).value;
+
+            objectivesCheckboxes.forEach((checkbox) => {
+                const selectedObjective = checkbox.value;
+
+                const objectiveSection = document.createElement("div");
+
+                const actionsSelect = document.createElement("select");
+                actionsSelect.name = `action_${formId}_${selectedObjective}`;
+                actionsSelect.id = `action_${formId}_${selectedObjective}`;
+
+                // Populate actions for the selected objective
+                for (const action in data[selectedGoal].objectives[selectedObjective].actions) {
+                    const option = document.createElement("option");
+                    option.value = action;
+                    option.textContent = action;
+                    actionsSelect.appendChild(option);
+                }
+
+                const subactionsSelect = document.createElement("select");
+                subactionsSelect.name = `subaction_${formId}_${selectedObjective}`;
+                subactionsSelect.id = `subaction_${formId}_${selectedObjective}`;
+
+                // Populate subactions for the selected objective and action
+                const selectedAction = actionsSelect.value;
+                const subactions = data[selectedGoal].objectives[selectedObjective].actions[selectedAction];
+
+                for (const subaction of subactions) {
+                    const option = document.createElement("option");
+                    option.value = subaction;
+                    option.textContent = subaction;
+                    subactionsSelect.appendChild(option);
+                }
+
+                // Add elements to the objective section
+                const objectiveLabel = document.createElement("label");
+                objectiveLabel.textContent = `Objective: ${selectedObjective}`;
+                objectiveSection.appendChild(objectiveLabel);
+                objectiveSection.appendChild(actionsSelect);
+                objectiveSection.appendChild(subactionsSelect);
+
+                actionSectionsDiv.appendChild(objectiveSection);
+            });
+        }
+
+        // Event listener for the "Add Another Goal" button
+        document.getElementById("addGoalButton").addEventListener("click", function () {
+            const formId = Date.now(); // Generate a unique form ID
+            const formContainer = document.createElement("div");
+            formContainer.id = `formContainer_${formId}`;
+            
+            // Duplicate the form structure
+            formContainer.innerHTML = document.getElementById("myForm").innerHTML;
+
+            // Update form IDs and names to be unique
+            formContainer.querySelectorAll("form, select, input, div").forEach((element) => {
+                if (element.id) {
+                    element.id = `${element.id}_${formId}`;
+                }
+                if (element.name) {
+                    element.name = `${element.name}_${formId}`;
+                }
+            });
+
+            // Add the duplicated form to the document
+            document.body.appendChild(formContainer);
+
+            // Initialize the duplicated form
+            populateObjectives(formId);
+            document.getElementById(`goal_${formId}`).addEventListener("change", () => {
+                populateObjectives(formId);
+                addObjectiveSections(formId);
+            });
+            document.getElementById(`objectives_${formId}`).addEventListener("change", () => {
+                addObjectiveSections(formId);
+            });
+        });
+
+        // Initialize the initial form
+        populateObjectives("");
+        document.getElementById("goal_").addEventListener("change", () => {
+            populateObjectives("");
+            addObjectiveSections("");
+        });
+        document.getElementById("objectives_").addEventListener("change", () => {
+            addObjectiveSections("");
+        });
+    </script>
+</body>
+</html>
