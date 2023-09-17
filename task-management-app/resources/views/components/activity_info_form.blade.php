@@ -48,11 +48,6 @@
 
 
 
-  <!-- ToDo : table 1 -->
-  <!-- ToDo : table 2 -->
-
-
-
 
 
 <!-- may be further need -->
@@ -72,13 +67,68 @@
 
   
 
+<!-- Table 1 Funding Sources -->
+
+  {{-- <table class="table">
+    <caption>Funding Sources</caption>
+    <thead>
+      <tr>
+    
+        <th class="th-header">No.</th>
+        <th class="th-header">Item</th>
+        <th class="th-header">Units</th>
+        <th class="th-header">Unit Charge</th>
+        <th class="th-header">Amount (Rs.)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Registration Fee per Participant - Professionals:</td>
+        <td>100</td>
+        <td>45</td>
+        <td>4,500.00</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Registration Fee per Participant - Students</td>
+        <td>12</td>
+        <td>30</td>
+        <td>8,000.00</td>
+      </tr>
+      
+      <tr>
+        <td></td>
+        <td>Total</td>
+        <td></td>
+        <td></td>
+        <td>45,900.00</td>
+      </tr>
+    </tbody>
+  </table> --}}
+</div>
+
+
+
+
+</div>
+
+<!-- Table 2 Expenditure Details  -->
+
+<div>
+
+
+
+  <h2>Expenditure Details</h2>
+
 
 
   {{-- <table class="table">
-    <caption>Expenditure Details</caption>
+    <caption>Transport</caption>
     <thead>
       <tr>
-        <th class="th-header">Expenditure Details</th>
+        <th class="th-header">No</th>
+        <th class="th-header">Transport</th>
         <th class="th-header">No. of Vehicles</th>
         <th class="th-header">Total Km</th>
         <th class="th-header">Unit Cost</th>
@@ -87,82 +137,105 @@
     </thead>
     <tbody>
       <tr>
+        <td>1</td>
         <td>Transport</td>
         <td>1 (University Bus)</td>
         <td>100</td>
         <td>45</td>
         <td>4,500.00</td>
       </tr>
+      
+    </tbody>
+  </table> --}}
+
+
+<!-- Table 3 Subsistence/Accomodation  -->
+
+
+  {{-- <table class="table">
+    <caption>Subsistence/Accomodation</caption>
+    <thead>
       <tr>
-        <td>Subsistence/ Accommodation</td>
+        <th class="th-header">No</th>
+        <th class="th-header">Subsistence/ Accommodation</th>
+        <th class="th-header">No. of persons/Units</th>
+        <th class="th-header">No. of days/hours</th>
+        <th class="th-header">Unit Cost</th>
+        <th class="th-header">Total (Rs.)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Resource Persons (Lectures)</td>
         <td>1</td>
         <td>12</td>
-        <td>30</td>
-        <td>8,000.00</td>
+        <td>8000</td>
+        <td>96,000.00</td>
       </tr>
       <tr>
-        <td>Resource Persons (Lectures)</td>
-        <td>3</td>
-        <td>12</td>
-        <td>1,500</td>
-        <td>4,500.00</td>
-      </tr>
-      <tr>
+        <td>2</td>
         <td>Technical Assistants</td>
+        <td>1</td>
+        <td>12</td>
+        <td>1500</td>
+        <td>18,000.00</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Accommodation</td>
         <td>50</td>
         <td>2</td>
         <td>2,000</td>
-        <td>100,000.00</td>
+        <td>200,000.00</td>
       </tr>
+      
+    </tbody>
+  </table> --}}
+
+
+  
+<!-- Table 4 Others  -->
+
+
+{{-- <table class="table">
+    <caption>Others</caption>
+    <thead>
       <tr>
-        <td>Others</td>
+        <th class="th-header">No</th>
+        <th class="th-header">Others</th>
+        <th class="th-header">Quantity</th>
+        <th class="th-header">No. of days/hours</th>
+        <th class="th-header">Unit Cost</th>
+        <th class="th-header">Total (Rs.)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Meals and Refreshments</td>
         <td>50</td>
-        <td>3</td>
-        <td>1,500</td>
+        <td>6</td>
+        <td>1500</td>
         <td>225,000.00</td>
       </tr>
       <tr>
-        <td>Meals and Refreshments</td>
         <td>2</td>
-        <td>1</td>
-        <td>30,000</td>
-        <td>60,000.00</td>
-      </tr>
-      <tr>
         <td>Administrative Cost (Faculty Administration)</td>
-        <td>4</td>
         <td>1</td>
-        <td>15,000</td>
-        <td>60,000.00</td>
+        <td>1</td>
+        <td>30000</td>
+        <td>30,000.00</td>
       </tr>
       <tr>
+        <td>3</td>
         <td>Geo Tech-Hub Coordination</td>
-        <td>5</td>
-        <td>3</td>
-        <td>800</td>
-        <td>4,000.00</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>30,000.00</td>
       </tr>
-      <tr>
-        <td>Lab and Other Instrumental Costs for Faculty of Geomatics</td>
-        <td>20</td>
-        <td>3</td>
-        <td>800</td>
-        <td>48,000.00</td>
-      </tr>
-      <tr>
-        <td>Students Participants (Lunch Only)</td>
-        <td>7</td>
-        <td>1</td>
-        <td>300</td>
-        <td>2,100.00</td>
-      </tr>
-      <tr>
-        <td>Contingencies</td>
-        <td>6</td>
-        <td>1</td>
-        <td>7,650</td>
-        <td>45,900.00</td>
-      </tr>
+      
     </tbody>
   </table> --}}
 </div>
