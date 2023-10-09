@@ -18,7 +18,6 @@ class HomeController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
         $input['activity_title'] = $data['titleInput'];
         $input['responsible_person'] = $data['nameInput'];
         $input['introduction'] = $data['introInput'];
@@ -28,8 +27,8 @@ class HomeController extends Controller
         $input['user_id'] = Auth::id();
 
         $result = $this->activity->create($input);
-        $response['activity_id'] = $result['id'];
-        return view('add_goals')->with($response);
+        
+        return view('add_goals')->with('id', $result['id']);
 
         
     }

@@ -38,7 +38,7 @@ class GoalController extends Controller
            $input['activity_id'] = $data['activity_id'];
            $result = $this->setGoal->create($input);
         }
-        return view('funding_tables');
+        return view('funding_tables')->with('activity_id', $data['activity_id']);
 
     }
 }

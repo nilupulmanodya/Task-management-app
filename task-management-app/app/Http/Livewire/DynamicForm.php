@@ -13,9 +13,15 @@ class DynamicForm extends Component
     {
         $this->inputCount++;
     }
+    public function mount(){
+        $this->activity_id;
+    } 
 
     public function render()
     {
+        // dd($this->activity_id);
+        $this->activity_id;
+
         return view('livewire.dynamic-form');
     }
 }
