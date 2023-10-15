@@ -11,6 +11,6 @@ class Action extends Model
 
     protected $fillable = [
         'name',
-        'goal_id'
+        'objective_id'
     ];
 }

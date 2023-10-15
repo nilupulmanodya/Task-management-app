@@ -9,11 +9,10 @@
                     <div class="form-group">
                 <label for="titleInput">Goal</label>
                         <select class="form-control"  name="goalName-{{ $i }}" id="">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
+                            @foreach ($allGoals as $goal)
+                            <option value="{{ $goal->id }}" wire:model='{{ $goal->id }}'>{{ $goal->name }}</option>
+                            @endforeach
+
             
                         </select>
                     </div>
