@@ -11,6 +11,5 @@ class Goal extends Model
 
     protected $fillable = [
         'name',
-        'activity_id'
     ];
 }
