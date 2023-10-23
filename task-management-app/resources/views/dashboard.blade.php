@@ -21,7 +21,7 @@
         </div>
     </div> 
 </x-app-layout>
-@elseif(auth()->user()->user_type)
+@elseif(!auth()->user()->user_type)
 
 <x-app-layout>
     <x-slot name="header">
