@@ -1,0 +1,3 @@
+<div>
+    {{ $fullTotal }}
+</div>
