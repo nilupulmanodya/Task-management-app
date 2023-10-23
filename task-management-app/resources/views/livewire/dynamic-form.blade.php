@@ -10,11 +10,21 @@
                 <label for="titleInput">Goal</label>
                         <select class="form-control"  name="goalName-{{ $i }}" id="">
                             @foreach ($allGoals as $goal)
-                            <option value="{{ $goal->id }}" wire:model='{{ $goal->id }}'>{{ $goal->name }}</option>
+                            <option value="{{ $goal->id }}" wire:model='goal_id'>{{ $goal->name }}</option>
                             @endforeach
 
             
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="titleInput">Stratergy</label>
+                    
+                                <select class="form-control" name="GoalObjective-{{ $i }}" id="">
+                                    {{-- @foreach ($allStratergirs as $stratergy) --}}
+                                        {{-- <option value="1">1</option>
+                                    @endforeach --}}
+
+                                </select>
                     </div>
                     <div class="form-group">
                 <label for="titleInput">Objective</label>

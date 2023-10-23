@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSubActionsTable extends Migration
+class AddActionIdToSubActionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateSubActionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sub_actions', function (Blueprint $table) {
-            $table->id();
-            $table->text('name');
-            
-            $table->timestamps();
+        Schema::table('sub_actions', function (Blueprint $table) {
+            //
+            $table->integer('action_id');  
         });
     }
 
@@ -28,6 +26,8 @@ class CreateSubActionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sub_actions');
+        Schema::table('sub_actions', function (Blueprint $table) {
+            $table->dropColumn('action_id');
+        });
     }
 }
