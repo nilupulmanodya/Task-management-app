@@ -1,79 +1,101 @@
-
 <div class="container pb-3">
-  <h1>Task Designing Faculty Action Plan For Faculty Board</h1>
-  
-  <div class="section-1">
+    <h1>Task Designing Faculty Action Plan For Faculty Board</h1>
 
-  <form action="{{ route('activity.store') }}" method="POST">
-    @csrf
-  <div class="form-group">
-    <label for="titleInput">Title</label>
-    <input type="text" class="form-control" name="titleInput" id="titleInput" aria-describedby="titleInput" placeholder="Enter the Title">
-    <!-- <small id="titleHelp" class="form-text text-muted">We'll never share your title with anyone else.</small> -->
-  </div>
-  <div class="form-group">
-    <label for="nameInput">Name</label>
-    <input type="text" class="form-control" id="nameInput" name="nameInput" aria-describedby="nameInput" placeholder="John Doe">
-    <small id="nameHelp" class="form-text text-muted">Name of the responsible person for particular inquery.</small>
-  </div>
+    <div class="section-1">
 
-  <!-- Action Plan Date picker -->
-  <div class="form-group date-picker-container">
-    <label class="form-check-label" for="exampleCheck1">Action plan</label>
-    <div class="row">
-      <div class="col">
-        <input type="text" id="startDate" name="startDate" class="date form-control" placeholder="Start Date">
-      </div>
-      <div class="col">
-        <input type="text" id="endDate" name="endDate" class="date form-control" placeholder="End date">
-      </div>
-    </div>
-  </div>
+        <form action="{{ route('activity.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="form-group">
+                <label for="titleInput">Title</label>
+                <input type="text" class="form-control" name="titleInput" id="titleInput" aria-describedby="titleInput"
+                    placeholder="Enter the Title">
+                <!-- <small id="titleHelp" class="form-text text-muted">We'll never share your title with anyone else.</small> -->
+                @error('titleInput')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="nameInput">Name</label>
+                <input type="text" class="form-control" id="nameInput" name="nameInput" aria-describedby="nameInput"
+                    placeholder="John Doe">
+                <small id="nameHelp" class="form-text text-muted">Name of the responsible person for particular
+                    inquery.</small>
+                @error('nameInput')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
 
-  <!-- ToDO : forms Goal Section should goes here -->
+            <!-- Action Plan Date picker -->
+            <div class="form-group date-picker-container">
+                <label class="form-check-label" for="exampleCheck1">Action plan</label>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" id="startDate" name="startDate" class="date form-control"
+                            placeholder="Start Date">
+                        @error('startDate')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="col">
+                        <input type="text" id="endDate" name="endDate" class="date form-control"
+                            placeholder="End date">
+                        @error('endDate')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+            </div>
 
-  <p>Todo Goals Section will goes here</p>
+            <!-- ToDO : forms Goal Section should goes here -->
 
-  <!-- Section introduction -->
-  <div class="form-group">
-    <label for="introductionFormControlTextarea1">Introduction</label>
-    <textarea class="form-control" name="introInput" id="introductionFormControlTextarea1" rows="3"></textarea>
-  </div>
+            <p>Todo Goals Section will goes here</p>
 
-  <!-- Section upload proposal -->
-  <div class="form-group">
-    <label for="exampleFormControlFile1">Example file input</label>
-    <input type="file" name="fileInput" class="form-control-file" id="exampleFormControlFile1">
-  </div>
+            <!-- Section introduction -->
+            <div class="form-group">
+                <label for="introductionFormControlTextarea1">Introduction</label>
+                <textarea class="form-control" name="introInput" id="introductionFormControlTextarea1" rows="3"></textarea>
+                @error('introInput')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <!-- Section upload proposal -->
+            <div class="form-group">
+                <label for="exampleFormControlFile1">Example file input</label>
+                <input type="file" name="fileInput" class="form-control-file" id="exampleFormControlFile1">
+                @error('fileInput')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
 
 
 
 
 
-<!-- may be further need -->
-  <!-- <div class="form-check">
+            <!-- may be further need -->
+            <!-- <div class="form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div> -->
 
 
-   <button type="submit" class="btn btn-success">Submit</button> 
-</form>
-  </div>
-
-  
+            <button type="submit" class="btn btn-success">Next</button>
+        </form>
+    </div>
 
 
 
-  
 
-<!-- Table 1 Funding Sources -->
 
-  {{-- <table class="table">
+
+
+    <!-- Table 1 Funding Sources -->
+
+    {{-- <table class="table">
     <caption>Funding Sources</caption>
     <thead>
       <tr>
-    
+
         <th class="th-header">No.</th>
         <th class="th-header">Item</th>
         <th class="th-header">Units</th>
@@ -96,7 +118,7 @@
         <td>30</td>
         <td>8,000.00</td>
       </tr>
-      
+
       <tr>
         <td></td>
         <td>Total</td>
@@ -119,11 +141,11 @@
 
 
 
-  <h2>Expenditure Details</h2>
+    <h2>Expenditure Details</h2>
 
 
 
-  {{-- <table class="table">
+    {{-- <table class="table">
     <caption>Transport</caption>
     <thead>
       <tr>
@@ -144,15 +166,15 @@
         <td>45</td>
         <td>4,500.00</td>
       </tr>
-      
+
     </tbody>
   </table> --}}
 
 
-<!-- Table 3 Subsistence/Accomodation  -->
+    <!-- Table 3 Subsistence/Accomodation  -->
 
 
-  {{-- <table class="table">
+    {{-- <table class="table">
     <caption>Subsistence/Accomodation</caption>
     <thead>
       <tr>
@@ -189,16 +211,16 @@
         <td>2,000</td>
         <td>200,000.00</td>
       </tr>
-      
+
     </tbody>
   </table> --}}
 
 
-  
-<!-- Table 4 Others  -->
+
+    <!-- Table 4 Others  -->
 
 
-{{-- <table class="table">
+    {{-- <table class="table">
     <caption>Others</caption>
     <thead>
       <tr>
@@ -235,14 +257,14 @@
         <td></td>
         <td>30,000.00</td>
       </tr>
-      
+
     </tbody>
   </table> --}}
 </div>
 
 
 <script type="text/javascript">
-    $('.date').datepicker({  
-       format: 'mm-dd-yyyy'
-     });  
-</script> 
+    $('.date').datepicker({
+        format: 'mm-dd-yyyy'
+    });
+</script>
