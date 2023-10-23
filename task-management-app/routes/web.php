@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ActionController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\GoalController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TableController;
@@ -39,6 +40,12 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::group(['middleware'=>'admins'],function(){
+    Route::get('/admin/user-add/form',[AdminController::class,'addUsers'])->name('addUser');
+    Route::post('/admin/user-add/form/store',[AdminController::class,'storeUsers'])->name('addUser.store');
+});
+
 
 
 Route::post('/activity/store', [HomeController::class, 'store'])->name('activity.store');

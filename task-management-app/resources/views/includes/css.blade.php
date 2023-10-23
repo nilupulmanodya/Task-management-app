@@ -4,4 +4,29 @@
         float: right;
         margin: 5px;
     }
+
+    #loader-wrapper {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 0;
+            left: 0;
+            background-color: #ffffff;
+            z-index: 9999;
+        }
+
+        .loader {
+            display: none;
+        }
+
+    .loader {
+        display: none;
+    }
+
+
+
+
 </style>
