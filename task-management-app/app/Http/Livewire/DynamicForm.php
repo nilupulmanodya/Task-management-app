@@ -3,16 +3,18 @@
 namespace App\Http\Livewire;
 
 use App\Models\Goal;
+use App\Models\Strategy;
 use Livewire\Component;
 
 class DynamicForm extends Component
 {
-    protected $goal;
+    protected $goal, $stratergy;
     public $inputCount = 1;
-    public $activity_id, $allGoals;
+    public $activity_id, $allGoals, $allStratergies;
 
     public function __construct() {
         $this->goal = new Goal();
+        $this->stratergy = new Strategy();
     }
 
     public function addInput()
@@ -35,7 +37,14 @@ class DynamicForm extends Component
 
     public function getGoals()
     {
-        return $this->goal->get();
+        $goals = $this->goal->get();
+
+        $this->allStratergies = $this->goal->strategies;
+    }
+
+    public function getObjectives()
+    {
+        return $this->allGoals->objectives;
     }
 
 }

@@ -4,6 +4,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/livewire@2.5.3/dist/livewire.js"></script>
 
+
 <script>
 
 $(document).ready(function () {
@@ -22,5 +23,22 @@ $(document).ready(function () {
     $().on('click', function () {
         var newContent = $("")
     });
+
 });
+
+
+// document.onreadystatechange = function () {
+//     if (document.readyState === 'complete') {
+//         document.getElementById('loader').style.display = 'none';
+//     }
+// };
+
+// document.addEventListener('readystatechange', function () {
+//     if (document.readyState !== 'complete') {
+//         document.getElementById('loader').style.display = 'flex';
+//     }
+// });
+
+
+
 </script>
