@@ -27,17 +27,19 @@ $(document).ready(function () {
 });
 
 
-// document.onreadystatechange = function () {
-//     if (document.readyState === 'complete') {
-//         document.getElementById('loader').style.display = 'none';
-//     }
-// };
+document.onreadystatechange = function () {
+    if (document.readyState === 'complete') {
+        document.getElementById('loader-wrapper').style.display = 'none';
+        document.getElementById('loader').style.display = 'none';
+    }
+};
 
-// document.addEventListener('readystatechange', function () {
-//     if (document.readyState !== 'complete') {
-//         document.getElementById('loader').style.display = 'flex';
-//     }
-// });
+document.addEventListener('readystatechange', function () {
+    if (document.readyState !== 'complete') {
+        document.getElementById('loader-wrapper').style.display = 'flex';
+        document.getElementById('loader').style.display = 'flex';
+    }
+});
 
 
 

@@ -10,7 +10,7 @@ class DynamicForm extends Component
 {
     protected $goal, $stratergy;
     public $inputCount = 1;
-    public $activity_id, $allGoals, $allStratergies;
+    public $activity_id, $allGoals, $allObjectives, $goal_id, $objective_id;
 
     public function __construct() {
         $this->goal = new Goal();
@@ -23,13 +23,14 @@ class DynamicForm extends Component
     }
     public function mount(){
         $this->activity_id;
-    } 
+    }
 
     public function render()
     {
-        // dd($this->activity_id);
+        // dd($this->goal_id);
         $this->activity_id;
         $this->allGoals = $this->getGoals();
+        // $this->allObjectives = $this->getObjectives();
 
         return view('livewire.dynamic-form');
     }
@@ -37,14 +38,14 @@ class DynamicForm extends Component
 
     public function getGoals()
     {
-        $goals = $this->goal->get();
-
-        $this->allStratergies = $this->goal->strategies;
+        // dd($this->goal->get());
+        return $this->goal->get();
     }
 
     public function getObjectives()
     {
-        return $this->allGoals->objectives;
+        $goal = $this->goal->find($this->goal_id);
+        return $goal->objectives;
     }
 
 }
