@@ -1,7 +1,9 @@
 <style>
     body {
+        background-image: url('/assets/abc.jpg');
+        background-size: cover;
         font-family: Arial, sans-serif;
-        background-color: #f7f7f7;
+        /* background-color: #f7f7f7; */
         margin: 0;
         padding: 0;
         display: flex;
@@ -13,7 +15,8 @@
     .container {
         text-align: center;
         padding: 20px;
-        background-color: #fff;
+        background-color: rgb(193, 193, 196);
+        /* background-color: #fff; */
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Action extends Model
 {
@@ -11,6 +12,11 @@ class Action extends Model
 
     protected $fillable = [
         'name',
-        'strategy_id'
+        'action_id'
     ];
+
+    public function subactions(): HasMany
+    {
+        return $this->hasMany(SubAction::class, 'action_id', 'id');
+    }
 }
