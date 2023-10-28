@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Goal extends Model
 {
@@ -14,7 +15,7 @@ class Goal extends Model
     ];
 
 
-    public function objectives()
+    public function objectives(): HasMany
     {
         return $this->hasMany(Objective::class, 'goal_id', 'id');
     }

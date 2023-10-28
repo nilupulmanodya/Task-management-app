@@ -10,10 +10,13 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 @include('includes.css')
                 <div class="card m-5">
-                    {{-- {{ dd($id) }} --}}
-                    {{-- @livewire('dynamic-form', ['activity_d' => $id], key($id)) --}}
-                <livewire:dynamic-form :activity_id="$id"/>
+                    {{-- {{ dd($id) }}
+                    @livewire('dynamic-form', ['activity_d' => $id], key($id)) --}}
+                    <livewire:dynamic-form :activity_id="$id" />
                 </div>
+
+
+
             </div>
         </div>
     </div>
