@@ -15,8 +15,8 @@ class CreateSubActionsTable extends Migration
     {
         Schema::create('sub_actions', function (Blueprint $table) {
             $table->id();
-            $table->text('name');
-            
+            $table->string('name', 250);
+
             $table->timestamps();
         });
     }
