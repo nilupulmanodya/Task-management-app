@@ -14,7 +14,7 @@
                     <a href="{{ route('addUser') }}" class="btn btn-success">Add User</a>
                 </div>
                 <div class="row ">
-                    <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                    <div style="width: -webkit-fill-available;" class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                         <livewire:admin.admin-dashboard />
                     </div>
                 </div>
@@ -37,9 +37,8 @@
                     <a href="{{ route('activity.action.form') }}" class="btn btn-success">Add Action</a>
                 </div>
                 <div class="row ">
-                    <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                    <div style="width: -webkit-fill-available;" class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                         <livewire:dashboard-component />
-                        {{-- @include('components.activity_info_form') --}}
                     </div>
                 </div>
             </div>

@@ -11,6 +11,10 @@ $(document).ready(function () {
     // Select the button and the container
     var addButton = $("#add-content-button");
     var contentContainer = $("#content-container");
+        $(#selectGoals).change(function(){
+            var selecedtGoal = $this.children("option:selected").val();
+            console.log(selecedtGoal);
+        })
 
     // Counter to keep track of the added elements
     var counter = 1;
@@ -29,16 +33,17 @@ $(document).ready(function () {
 
 document.onreadystatechange = function () {
     if (document.readyState === 'complete') {
+        document.getElementById('"loader-wrapper').style.display = 'none';
         document.getElementById('loader').style.display = 'none';
     }
 };
 
 document.addEventListener('readystatechange', function () {
     if (document.readyState !== 'complete') {
+        document.getElementById('"loader-wrapper').style.display = 'flex';
         document.getElementById('loader').style.display = 'flex';
     }
 });
-
 
 
 </script>

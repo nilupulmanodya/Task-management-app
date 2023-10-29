@@ -42,7 +42,7 @@
 
   <!-- Section upload proposal -->
   <div class="form-group">
-    <label for="exampleFormControlFile1">Example file input</label>
+    <label for="exampleFormControlFile1">Attache the Proposal</label>
     <input type="file" name="fileInput" class="form-control-file" id="exampleFormControlFile1">
   </div>
 
