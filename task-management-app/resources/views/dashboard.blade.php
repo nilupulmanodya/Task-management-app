@@ -34,10 +34,12 @@
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="row my-3 justify-content-end">
-                    <a href="{{ route('activity.action.form') }}" class="btn btn-success">Add Action</a>
+                    <a href="{{ route('activity.action.form') }}" class="btn btn-primary">Add Action</a>
                 </div>
                 <div class="row ">
-                    <div style="width: -webkit-fill-available;" class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                    <div style="width: -webkit-fill-available;"
+                        class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                        @include('includes.css')
                         <livewire:dashboard-component />
                     </div>
                 </div>

@@ -30,7 +30,7 @@ class DynamicForm extends Component
     {
         $this->inputCount++;
 
-     
+
     }
     public function mount(){
         $this->activity_id;
@@ -52,7 +52,7 @@ class DynamicForm extends Component
             // $this->allStrategies = ($this->objectiveIds && array_key_exists($this->objectiveIds[$this->inputCount]))?($this->getStrategies()):null;
             // $this->allActions = (array_key_exists($this->strategyIds[$this->inputCount]))?($this->getActions()):null;
             // $this->allSubActions = (array_key_exists($this->actionIds[$this->inputCount]))?($this->getSubActions()):null;
-        
+
 
         if ($this->inputCount && array_key_exists($this->inputCount,$this->objectiveIds) ){
             $this->allStrategies = ($this->objectiveIds[$this->inputCount]) ? $this->getStrategies() : null;
