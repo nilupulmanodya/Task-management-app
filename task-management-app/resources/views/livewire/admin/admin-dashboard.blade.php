@@ -3,9 +3,10 @@
 
         <table>
           <tr>
-            <th rowspan="2">name of event</th>
+            <th rowspan="2">Name of Event</th>
             <th rowspan="2">Responsible</th>
             <th colspan="2">Date</th>
+            <th rowspan="2">Status</th>
             <th rowspan="2">Completion(%)</th>
             <th rowspan="2">Evidences</th>
             <th rowspan="2">Remarks</th>
@@ -26,11 +27,9 @@
             <td>{{ $item->end_date }}</td>
             <td>
               <select name="status" id="">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
+                <option value="1">Planned</option>
+                <option value="2">In Progress</option>
+                <option value="3">Complete</option>
               </select>
             </td>
             <td>
