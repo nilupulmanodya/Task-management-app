@@ -23,7 +23,7 @@ class GoalController extends Controller
     public function __construct()
     {
         $this->setGoal = new SetGoal();
-      
+
 
     }
     public function index()
@@ -31,12 +31,12 @@ class GoalController extends Controller
         return view('add_goals');
     }
 
- 
+
     public function store(Request $request)
     {
         $data = $request->all();
 
-        for ($i=1; $i <= $data['itr'] ; $i++) { 
+        for ($i=1; $i <= $data['itr'] ; $i++) {
            $input['goal_id'] = $data['goalName-'.$i];
            $input['objective_id'] = $data['GoalObjective-'.$i];
            $input['strategy_id'] = $data['objectiveStrategy-' . $i];
