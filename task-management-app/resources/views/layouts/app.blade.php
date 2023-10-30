@@ -34,13 +34,13 @@
         <x-jet-banner />
 
          <!-- Loader HTML -->
-        <div id="loader-wrapper">
+        {{-- <div id="loader-wrapper">
             <div id="loader" class="loader">
                 <div class="spinner-border text-primary" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <div class="min-h-screen bg-gray-100">
             @livewire('navigation-menu')

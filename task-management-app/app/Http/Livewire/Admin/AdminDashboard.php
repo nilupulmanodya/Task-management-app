@@ -10,7 +10,7 @@ class AdminDashboard extends Component
 {
 
     protected $rows;
-    public $items;
+    public $items, $goalModalData;
 
     public function __construct() {
         $this->rows = new Activity();
