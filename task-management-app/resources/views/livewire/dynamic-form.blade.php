@@ -10,7 +10,7 @@
             <input type="hidden" name="itr" value="{{ $i }}">
 
             <div class="goal-label">
-                <label for="titleInput" style="color:white; ">Goal {{ $i }}</label>
+                <label for="titleInput">Goal {{ $i }}</label>
             </div>
 
 

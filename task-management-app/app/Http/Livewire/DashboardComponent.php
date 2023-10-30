@@ -21,7 +21,7 @@ class DashboardComponent extends Component
         $this->goalModalData;
     }
 
-    
+
     public function render()
     {
         $this->goalModalData;
@@ -43,10 +43,10 @@ class DashboardComponent extends Component
             // Add a short delay to avoid excessive resource usage
             usleep(200000); // 100000 microseconds = 0.1 seconds
             // Fetch the value again
-            
+
         }while ($this->goalModalData === null);
         $this->emit('itemSelected');
-        
+
     }
 
 }

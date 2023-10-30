@@ -37,6 +37,18 @@
         font-size: 20px;
     }
 
+    .modal-title {
+        color: blue;
+        width: 100%;
+        text-align: center;
+    }
+
+    .modelback {
+        background-color: black;
+        padding: 10px;
+        height: 100vh;
+    }
+
     #loader-wrapper {
         position: fixed;
         width: 100%;

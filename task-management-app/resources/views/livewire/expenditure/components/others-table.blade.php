@@ -94,7 +94,7 @@
                             @enderror --}}
                         </div>
                         <br>
-                        <button type="submit" id="rowAdding" class="btn btn-primary">Add Another Record</button>
+                        <button type="submit" id="rowAdding" class="btn btn-primary">Submit</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </form>
                 </div>
