@@ -92,7 +92,7 @@
                             @enderror --}}
                         </div>
                         <br>
-                        <button type="submit" id="rowAdding" class="btn btn-primary">Add Another Record</button>
+                        <button type="submit" id="rowAdding" class="btn btn-primary">Submit</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </form>
                 </div>
@@ -109,7 +109,7 @@
 
 // $('#rowAddModal').on('show.bs.modal', function (event) {
 //   var button = $(event.relatedTarget)
-//   var recipient = button.data('whatever') 
+//   var recipient = button.data('whatever')
 //   var modal = $(this)
 //   modal.find('.modal-title').text('New message to ' + recipient)
 //   modal.find('.modal-body input').val(recipient)
@@ -117,7 +117,7 @@
 
 // $('#rowDataForm').on('mouseup', function (event) {
 //   // $('#rowAdding').prop("disabled", true);
-  
+
 // })
 
 </script> --}}
