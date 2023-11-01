@@ -4,6 +4,14 @@
       border-collapse: collapse;
       width: 100%;
     }
+
+    .table-lable{
+        background-color:black;
+        margin-top: 20px;
+        padding:10px;
+        color:white;
+        text-align:center;
+    }
     
     th, td {
       border: 1px solid black;
