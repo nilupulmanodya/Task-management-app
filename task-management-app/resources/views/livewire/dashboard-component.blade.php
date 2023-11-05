@@ -1,195 +1,156 @@
 <div class="mx-3 my-3">
 
-<table>
-  <tr>
-    <th rowspan="2">name of event</th>
-    <th rowspan="2">Goal</th>
-    <th rowspan="2">Objective</th>
-    <th rowspan="2">Stratergy</th>
-    <th rowspan="2">Action</th>
-    <th rowspan="2">Sub Action</th>
-    <th rowspan="2">Responsible</th>
-    <th colspan="2">Date</th>
-    <th rowspan="2">Completion(%)</th>
-    <th rowspan="2">Evidences</th>
-    <th rowspan="2">Remarks</th>
-  </tr>
-  <tr>
-    <th>Planned</th>
-    <th>Completed</th>
-  </tr>
-  @foreach ($items as $item)      
-  <tr>
-    <td>{{ $item->activity_title }}</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  @endforeach
+    <table style='text-align:center'>
+        <tr>
+            <th rowspan="2">Name of event </th>
+            <th rowspan="2">Responsible</th>
+            <th colspan="2">Date</th>
+            <th rowspan="2">Status</th>
+            <th rowspan="2">Completion(%)</th>
+            <th rowspan="2">Evidences</th>
+            <th rowspan="2">Remarks</th>
+            <th rowspan="2">Actions</th>
+        </tr>
+        <tr>
+            <th>Planned</th>
+            <th>Completed</th>
+        </tr>
+        @foreach ($items as $item)
+            <tr>
+                <td><a cursor="pointer" wire:click="selectItem({{ $item->id }})">{{ $item->activity_title }}</a>
+                    <br> <br>
+                    @if (auth()->user()->id = $item->user_id)
+                        <a href="" class="btn btn-dark">Edit</a>
+                    @endif
+                </td>
 
-</table>
+                <td>
+                    {{ $item->user->name }}
+                </td>
+                <td>{{ $item->start_date }}</td>
+                <td>{{ $item->end_date }}</td>
+                <td>
+                    <select name="status" id="">
+                        <option>Select One</option>
+                        <option value="1">Planned</option>
+                        <option value="2">In Progress</option>
+                        <option value="3">Complete</option>
+                    </select>
+                </td>
+                <form>
+                    @csrf
+                    <td>
+                        <input width="3" type="number" name="Completion" id="">
+                    </td>
+                    <td>
+                        <input type="file" name="fileInput" class="form-control-file" id="exampleFormControlFile1">
+
+                    </td>
+                    <td style="overflow-x: scroll;overflow-y: scroll;">
+                        <textarea name="remarks" id="" cols="10" rows="3"></textarea>
+                    </td>
+
+                    <td>
+                        <button type="submit" class="btn btn-primary px-3 my-2">Save</button>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </td>
 
 
+                </form>
+                {{-- <td>
+                    @if (auth()->user()->id = $item->user_id)
+                        <a href="" class="btn btn-dark px-3">Edit</a>
+                    @endif
+                    <a href="" class="btn btn-primary my-2 px-3">Save</a>
 
+                    <a href="" class="btn btn-danger">Delete</a>
+                </td> --}}
+            </tr>
+        @endforeach
 
-
-    <table border="0" cellpadding="0" cellspacing="0" id="sheet0" class="sheet0 gridlines">
-        <col class="col0">
-        <col class="col1">
-        <col class="col2">
-        <col class="col3">
-        <col class="col4">
-        <col class="col5">
-        <col class="col6">
-        <col class="col7">
-        <col class="col8">
-        <col class="col9">
-        <col class="col10">
-        <col class="col11">
-        <tbody>
-          <tr class="row0">
-            <td class="column0 style11 s style7" rowspan="2">Name of the event (*as applicable, add rows if required)</td>
-            <td class="column1 style6 s style7" rowspan="2">Goal</td>
-            <td class="column2 style6 s style7" rowspan="2">Objective</td>
-            <td class="column3 style6 s style7" rowspan="2">strategy</td>
-            <td class="column4 style6 s style7" rowspan="2">Action</td>
-            <td class="column5 style6 s style7" rowspan="2">Sub Actions</td>
-            <td class="column6 style6 s style7" rowspan="2">Responsible</td>
-            <td class="column7 style4 s style5" colspan="2">Date</td>
-            <td class="column9 style6 s style7" rowspan="2">Completion(%)</td>
-            <td class="column10 style6 s style7" rowspan="2">Evidences</td>
-            <td class="column11 style6 s style7" rowspan="2">Remarks</td>
-          </tr>
-          <tr class="row1">
-            <td class="column7 style1 s">Planned</td>
-            <td class="column8 style1 s">Completed</td>
-          </tr>
-          @foreach ($items as $item)
-          <tr class="row2">
-            <td class="column0"></td>
-            <td class="column1 style6 s style7" rowspan="71">Goal 1:To achieve excellence in the quality of teaching and learning </td>
-            <td class="column2 style8 s style7" rowspan="25">1.1 To continuously improve the quality and relevance of academic programs  - Objective</td>
-            <td class="column3 style8 s style7" rowspan="25">1.1.1. Set up a mechanism to systematically review existing academic programs and develop new programs</td>
-            <td class="column4 style3 s">1.1.1.1 Strengthen the existing curriculum development committees in the faculties</td>
-            <td class="column5 style3 s">1.1.1.1.a : Nominate the members from FB</td>
-            <td class="column6 style3 null"></td>
-            <td class="column7 style3 null"></td>
-            <td class="column8 style3 null"></td>
-            <td class="column9 style3 n">100</td>
-            <td class="column10 style3 s">FB No</td>
-            <td class="column11 style3 null"></td>
-          </tr>
-          <tr class="row3">
-            <td class="column0">&nbsp;</td>
-            <td class="column4 style8 s style7" rowspan="7">1.1.1.2 Adopt a participatory approach in academic program design and development </td>
-            <td class="column5 style3 s">1.1.1.2.a: Workshops Organized</td>
-            <td class="column6 style3 null"></td>
-            <td class="column7 style3 null"></td>
-            <td class="column8 style3 null"></td>
-            <td class="column9 style3 null"></td>
-            <td class="column10 style3 null"></td>
-            <td class="column11 style3 null"></td>
-          </tr>
-          <tr class="row4">
-            <td class="column0">&nbsp;</td>
-            <td class="column5 style3 s">1.1.1.2.b: Seminars Organized</td>
-            <td class="column6 style3 null"></td>
-            <td class="column7 style3 null"></td>
-            <td class="column8 style3 null"></td>
-            <td class="column9 style3 null"></td>
-            <td class="column10 style3 null"></td>
-            <td class="column11 style3 null"></td>
-          </tr>
-          <tr class="row5">
-            <td class="column0">&nbsp;</td>
-            <td class="column5 style3 s">1.1.1.2.c: Discussion Organized</td>
-            <td class="column6 style3 null"></td>
-            <td class="column7 style3 null"></td>
-            <td class="column8 style3 null"></td>
-            <td class="column9 style3 null"></td>
-            <td class="column10 style3 null"></td>
-            <td class="column11 style3 null"></td>
-          </tr>
-          <tr class="row6">
-            <td class="column0">&nbsp;</td>
-            <td class="column5 style3 s">1.1.1.2.d  RICS annual Review</td>
-            <td class="column6 style3 null"></td>
-            <td class="column7 style3 null"></td>
-            <td class="column8 style3 null"></td>
-            <td class="column9 style3 null"></td>
-            <td class="column10 style3 null"></td>
-            <td class="column11 style3 null"></td>
-          </tr>
-          <tr class="row7">
-            <td class="column0">&nbsp;</td>
-            <td class="column5 style3 s">1.1.1.2.e: FIG Academic Membership</td>
-            <td class="column6 style3 null"></td>
-            <td class="column7 style3 null"></td>
-            <td class="column8 style3 null"></td>
-            <td class="column9 style3 null"></td>
-            <td class="column10 style3 null"></td>
-            <td class="column11 style3 null"></td>
-          </tr>
-          <tr class="row8">
-            <td class="column0">&nbsp;</td>
-            <td class="column5 style3 s">1.1.1.2.f: Cad B annual Review</td>
-            <td class="column6 style3 null"></td>
-            <td class="column7 style3 null"></td>
-            <td class="column8 style3 null"></td>
-            <td class="column9 style3 null"></td>
-            <td class="column10 style3 null"></td>
-            <td class="column11 style3 null"></td>
-          </tr>
-          <tr class="row9">
-            <td class="column0">&nbsp;</td>
-            <td class="column5 style3 s">1.1.1.2.g: Program review</td>
-            <td class="column6 style3 null"></td>
-            <td class="column7 style3 null"></td>
-            <td class="column8 style3 null"></td>
-            <td class="column9 style3 null"></td>
-            <td class="column10 style3 null"></td>
-            <td class="column11 style3 null"></td>
-          </tr>
-          <tr class="row10">
-            <td class="column0">&nbsp;</td>
-            <td class="column4 style8 s style7" rowspan="4">1.1.1.3 Adopt SLQF and SBSs as reference points in developing curricula </td>
-            <td class="column5 style3 s">1.1.1.3.a: Workshops Organized</td>
-            <td class="column6 style3 null"></td>
-            <td class="column7 style3 null"></td>
-            <td class="column8 style3 null"></td>
-            <td class="column9 style3 null"></td>
-            <td class="column10 style3 null"></td>
-            <td class="column11 style3 null"></td>
-          </tr>
-          <tr class="row11">
-            <td class="column0">&nbsp;</td>
-            <td class="column5 style3 s">1.1.1.3.b: Seminars Organized</td>
-            <td class="column6 style3 null"></td>
-            <td class="column7 style3 null"></td>
-            <td class="column8 style3 null"></td>
-            <td class="column9 style3 null"></td>
-            <td class="column10 style3 null"></td>
-            <td class="column11 style3 null"></td>
-          </tr>
-          <tr class="row12">
-            <td class="column0">&nbsp;</td>
-            <td class="column5 style3 s">1.1.1.3.c: Discussion Organized</td>
-            <td class="column6 style3 null"></td>
-            <td class="column7 style3 null"></td>
-            <td class="column8 style3 null"></td>
-            <td class="column9 style3 null"></td>
-            <td class="column10 style3 null"></td>
-            <td class="column11 style3 null"></td>
-          </tr>
-          @endforeach
-        </tbody>
     </table>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="ModalContent" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modelback">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">
+                            Task Details
+                        </h5>
+                        <button type="button" class="close" onclick="closeModal()" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            @if ($goalModalData)
+
+
+                                @foreach ($goalModalData->goals as $item)
+                                    <div>
+                                        <div class="py-2">
+                                            <p><strong>Goal Name:</strong><br> <span
+                                                    id="goalNameResult">{{ $item->goal->name ?? '' }}</span></p>
+                                        </div>
+                                        <div class="py-1">
+                                            <p><strong>Objective:</strong> <br><span
+                                                    id="goalObjectiveResult">{{ $item->objective->name ?? '' }}</span>
+                                            </p>
+                                        </div>
+                                        <div class="py-1">
+                                            {{-- <p><strong>Objective:</strong> <span id="goalObjectiveResult">{{ ($goalModalData->strategy->name)??''}}</span></p> --}}
+                                        </div>
+                                        <div class="py-1">
+                                            <p><strong>Action:</strong><br> <span
+                                                    id="goalActionResult">{{ $item->action->name ?? '' }}</span></p>
+                                        </div>
+                                        <div class="py-1">
+                                            <p><strong>Sub-action:</strong> <br><span
+                                                    id="goalSubActionResult">{{ $item->subAction->name ?? '' }}</span>
+                                            </p>
+
+                                        </div>
+                                        <hr>
+                                    </div>
+                                @endforeach
+                            @endif
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="closeModal()"
+                            data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
+<!-- Large modal -->
+
+
+
+<script>
+    document.addEventListener('livewire:load', function() {
+        Livewire.on('itemSelected', () => {
+            console.log('hi');
+            document.getElementById('ModalContent').classList.add('show');
+            document.getElementById('ModalContent').classList.remove('fade');
+            document.getElementById('ModalContent').style.display = 'block';
+
+            // You can call a method or just refresh the component
+        });
+    });
+
+    function closeModal() {
+        console.log('hi');
+        document.getElementById('ModalContent').classList.remove('show');
+        document.getElementById('ModalContent').classList.add('fade');
+        document.getElementById('ModalContent').style.display = 'none';
+    }
+</script>

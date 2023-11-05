@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSubActionsTable extends Migration
+class AddUserTypeToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateSubActionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sub_actions', function (Blueprint $table) {
-            $table->id();
-            $table->string('name', 250);
-
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->boolean('user_type')->after('email')->default(false);
         });
     }
 
@@ -28,6 +25,8 @@ class CreateSubActionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sub_actions');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('user_type');
+        });
     }
 }

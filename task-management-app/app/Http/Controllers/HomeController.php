@@ -65,4 +65,19 @@ class HomeController extends Controller
 
 
     }
+    // public function otherstore(Request $request)
+    // {
+    //     $data = $request->all();
+    //     $input['Completion'] = $data['Completion'];
+    //     $input['fileInput'] = $data['fileInput'];
+    //     $input['remarks'] = $data['remarks'];
+    //     $input['user_id'] = Auth::id();
+
+    //     $result = $this->activity->create($input);
+
+    //     // return view('dashboard')->with('id', $result['id']);
+    //     return view('dashboard', ['id' => $result->id]);
+
+
+    // }
 }

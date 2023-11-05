@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ActionController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\GoalController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TableController;
@@ -40,10 +41,17 @@ Route::middleware([
     })->name('dashboard');
 });
 
+Route::group(['middleware'=>'admins'],function(){
+    Route::get('/admin/user-add/form',[AdminController::class,'addUsers'])->name('addUser');
+    Route::post('/admin/user-add/form/store',[AdminController::class,'storeUsers'])->name('addUser.store');
+});
+
+
 
 Route::post('/activity/store', [HomeController::class, 'store'])->name('activity.store');
 Route::get('/activity/goal', [GoalController::class, 'index'])->name('activity.goal');
 Route::post('/activity/goal/store', [GoalController::class, 'store'])->name('activity.goal.store');
+
 Route::get('/activity/tables', [TableController::class, 'index'])->name('activity.table');
 Route::get('/activity/tables/word/download',[WordFileController::class, 'store'])->name('activity.table.download');
 Route::get('/activity/actions/form', [ActionController::class, 'index'])->name('activity.action.form');

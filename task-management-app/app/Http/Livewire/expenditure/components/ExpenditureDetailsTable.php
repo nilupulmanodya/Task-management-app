@@ -17,20 +17,20 @@ class ExpenditureDetailsTable extends Component
 
 
     protected $rules = [
-        'newTransport' => 'required', 
-        'newVehicle' => 'required|numeric', 
-        'newTotalKm' => 'required|numeric', 
+        'newTransport' => 'required',
+        'newVehicle' => 'required|numeric',
+        'newTotalKm' => 'required|numeric',
         'newUnitCost' => 'required|numeric',
         'newTransportTotal' => 'required|numeric',
-        'newSubsistance' => 'required', 
-        'newPersons' => 'required|numeric', 
+        'newSubsistance' => 'required',
+        'newPersons' => 'required|numeric',
         'newSubsistanceHours' => 'required|numeric',
         'newSubsistanceCosts' => 'required|numeric',
         'newSubsistanceTotal' => 'required|numeric',
-        'newOthers' => 'required', 
-        'newQuantity' => 'required|numeric', 
-        'newOthersHours' => 'required|numeric', 
-        'newOthersCost' => 'required|numeric', 
+        'newOthers' => 'required',
+        'newQuantity' => 'required|numeric',
+        'newOthersHours' => 'required|numeric',
+        'newOthersCost' => 'required|numeric',
         'newOthersTotal' => 'required|numeric',
     ];
 

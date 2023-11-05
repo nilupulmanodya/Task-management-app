@@ -1,5 +1,5 @@
 <div class="container pb-3">
-    <h1>Task Designing Faculty Action Plan For Faculty Board</h1>
+    <h5 class="table-lable">Task Designing Faculty Action Plan For Faculty Board</h5>
 
     <div class="section-1">
 
@@ -47,6 +47,7 @@
             </div>
 
             <!-- ToDO : forms Goal Section should goes here -->
+            <!-- ToDO : forms Goal Section should goes here -->
 
             <p>Todo Goals Section will goes here</p>
 
@@ -72,16 +73,16 @@
 
 
 
-            <!-- may be further need -->
-            <!-- <div class="form-check">
+<!-- may be further need -->
+  <!-- <div class="form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div> -->
 
 
-            <button type="submit" class="btn btn-success">Next</button>
-        </form>
-    </div>
+   <button type="submit" class="btn btn-success">Submit</button>
+</form>
+  </div>
 
 
 
@@ -89,9 +90,9 @@
 
 
 
-    <!-- Table 1 Funding Sources -->
+<!-- Table 1 Funding Sources -->
 
-    {{-- <table class="table">
+  {{-- <table class="table">
     <caption>Funding Sources</caption>
     <thead>
       <tr>
@@ -141,11 +142,11 @@
 
 
 
-    <h2>Expenditure Details</h2>
+  <h2>Expenditure Details</h2>
 
 
 
-    {{-- <table class="table">
+  {{-- <table class="table">
     <caption>Transport</caption>
     <thead>
       <tr>
@@ -171,10 +172,10 @@
   </table> --}}
 
 
-    <!-- Table 3 Subsistence/Accomodation  -->
+<!-- Table 3 Subsistence/Accomodation  -->
 
 
-    {{-- <table class="table">
+  {{-- <table class="table">
     <caption>Subsistence/Accomodation</caption>
     <thead>
       <tr>
@@ -217,10 +218,10 @@
 
 
 
-    <!-- Table 4 Others  -->
+<!-- Table 4 Others  -->
 
 
-    {{-- <table class="table">
+{{-- <table class="table">
     <caption>Others</caption>
     <thead>
       <tr>

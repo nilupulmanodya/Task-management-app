@@ -21,7 +21,7 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
-
+        <script src="./includes/js"></script>
         <!-- Styles -->
         @livewireStyles
 
@@ -30,7 +30,17 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
+
         <x-jet-banner />
+
+         <!-- Loader HTML -->
+        {{-- <div id="loader-wrapper">
+            <div id="loader" class="loader">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </div> --}}
 
         <div class="min-h-screen bg-gray-100">
             @livewire('navigation-menu')
@@ -53,5 +63,6 @@
         @stack('modals')
 
         @livewireScripts
+        @include('includes.js')
     </body>
 </html>

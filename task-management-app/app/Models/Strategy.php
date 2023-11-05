@@ -6,17 +6,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Goal extends Model
+class Strategy extends Model
 {
-    use HasFactory;
 
+    use HasFactory;
     protected $fillable = [
         'name',
+        'strategy_id'
     ];
 
-
-    public function objectives(): HasMany
+    public function actions(): HasMany
     {
-        return $this->hasMany(Objective::class, 'goal_id', 'id');
+        return $this->hasMany(Action::class, 'strategy_id', 'id');
     }
+    
 }
