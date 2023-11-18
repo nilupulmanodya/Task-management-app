@@ -65,6 +65,15 @@ class HomeController extends Controller
 
 
     }
+
+    public function deletetask($id){
+        $item=Activity::find($id);
+        // dd($item);
+        $item->delete();
+        return redirect('dashboard');
+    }
+
+
     // public function otherstore(Request $request)
     // {
     //     $data = $request->all();

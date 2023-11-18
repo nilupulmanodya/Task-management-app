@@ -48,11 +48,13 @@
                     </td>
                     <td style="overflow-x: scroll;overflow-y: scroll;">
                         <textarea name="remarks" id="" cols="10" rows="3"></textarea>
+
                     </td>
 
                     <td>
-                        <button type="submit" class="btn btn-primary px-3 my-2">Save</button>
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <a class="btn btn-danger" href="{{ route('activity.delete', $item->id) }}">Delete 
+                        </a>
+
                     </td>
 
 
