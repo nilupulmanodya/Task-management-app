@@ -58,7 +58,6 @@ class HomeController extends Controller
         $input['end_date'] = date('Y-m-d', strtotime($data['endDate']));
         $input['proposal_id'] = 0;
         $input['user_id'] = Auth::id();
-
         $result = $this->activity->create($input);
 
         return redirect()->route('activity.goal', ['activity_id' => $result['id']]);
