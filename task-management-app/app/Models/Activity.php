@@ -18,6 +18,7 @@ class Activity extends Model
         'introduction',
         'start_date',
         'end_date',
+        'file_path',
         'proposal_id',
         'user_id'
     ];
