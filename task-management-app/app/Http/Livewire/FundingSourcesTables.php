@@ -72,6 +72,13 @@ class FundingSourcesTables extends Component
         $this->newUnit = null;
         $this->newUnitCharge = null;
         $this->newAmount = null;
+
+    }
+
+    public function deleteFundingSource($id){
+        $fundingSource = $this->rows->find($id);
+        $fundingSource->delete();
+        
     }
 
 

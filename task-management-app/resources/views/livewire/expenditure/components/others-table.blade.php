@@ -7,6 +7,7 @@
             <th class="th-header">No. of Hours</th>
             <th class="th-header">Unit Cost</th>
             <th class="th-header">Total (Rs.)</th>
+            <th class="th-header"></th>
         </tr>
         <tbody>
             @foreach ($othersItems as $key => $item)
@@ -17,19 +18,26 @@
                     <td>{{ $item['No_of_hours'] }}</td>
                     <td>{{ $item['unit_cost'] }}</td>
                     <td>{{ $item['total'] }}</td>
+                    <td><div class="dropdown">
+                        <a style="cursor:pointer;" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <!-- Add your setting icon here -->
+                            <i class="fa fa-trash" style="color: red;"></i>
+                        </a>
+                    </div>
+                </td>
                 </tr>
                 @php
                     $totalPrice += $item['total'];
                 @endphp
             @endforeach
             <tr>
-                <td colspan="6">
+                <td colspan="7">
                     <button type="button" class="btn btn-primary float-right" data-toggle="modal"
-                        data-target="#rowAddModal3" data-whatever="@mdo">Add New Transport</button>
+                        data-target="#rowAddModal3" data-whatever="@mdo">Add New Others</button>
                 </td>
             </tr>
             <tr>
-                <td colspan="5" class="total-amount">
+                <td colspan="6" class="total-amount">
                     Total (Rs.)
                 </td>
                 <td class="total-amount">

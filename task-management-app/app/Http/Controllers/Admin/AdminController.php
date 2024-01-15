@@ -24,6 +24,6 @@ class AdminController extends Controller
 
     public function storeUsers(Request $request)
     {
-        
+        dd($request);
     }
 }

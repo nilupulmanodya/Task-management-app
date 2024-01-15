@@ -49,6 +49,7 @@ Route::group(['middleware'=>'admins'],function(){
 
 
 Route::post('/activity/store', [HomeController::class, 'store'])->name('activity.store');
+Route::get('/activity/update/{id}', [ActionController::class, 'update'])->name('activity.update');
 Route::get('/activity/{activity_id}/goal', [GoalController::class, 'index'])->name('activity.goal');
 Route::post('/activity/goal/store', [GoalController::class, 'store'])->name('activity.goal.store');
 

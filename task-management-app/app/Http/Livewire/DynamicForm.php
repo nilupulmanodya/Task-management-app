@@ -17,6 +17,9 @@ class DynamicForm extends Component
     public $activity_id, $allGoals, $allObjectives, $allStrategies, $allActions, $allSubActions;
     public $goalIds, $objectiveIds, $strategyIds, $actionIds, $subActionIds;
     public $addedActions;
+    public $goalName;
+    public $editGoalId, $editobjectiveId, $editStryategyId, $editActionId, $editSubActionId;
+
     // protected $listeners = ['goalSelected' => 'handleGoalSelected'];
 
     public function __construct() {
@@ -127,7 +130,8 @@ class DynamicForm extends Component
 
     public function deleteActivity($activityId)
     {
-        $this->set_goal->delete($activityId);
+        $activity = $this->set_goal->find($activityId);
+        $activity->delete();
         $this->closeDropdown();
     }
     
@@ -147,11 +151,16 @@ class DynamicForm extends Component
         $this->emit('closeDropdown');
     }
 
-    public function openEditForm()
+    public function openEditForm($goalIndex)
     {
-        
+        $this->editGoalId = $this->set_goal->find($goalIndex)->goal['id'];
+        $this->editobjectiveId = $this->set_goal->find($goalIndex)->objective['id'];
+        $this->editStryategyId = $this->set_goal->find($goalIndex)->strategy['id'];
+        $this->editActionId = $this->set_goal->find($goalIndex)->action['id'];
+        $this->editSubActionId = $this->set_goal->find($goalIndex)->subAction['id'];
+        // dd($this->editGoalId, $this->editobjectiveId, $this->editStryategyId, $this->editActionId,  $this->editSubActionId);
         // Emit a Livewire event to open the dropdown
-        $this->emit('openEditForm');
+        $this->emit('openEditForm',$goalIndex);
     }
 
 }

@@ -66,6 +66,8 @@ class HomeController extends Controller
 
     }
 
+
+
     public function deletetask($id){
         $item=Activity::find($id);
         $item->delete();

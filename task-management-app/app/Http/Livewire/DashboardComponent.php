@@ -10,6 +10,7 @@ class DashboardComponent extends Component
 {
     protected $rows,$setgoal;
     public $items, $goalModalData ,$goalTitle, $goalobj;
+    public $editGoalId, $editobjectiveId, $editStryategyId, $editActionId, $editSubActionId;
 
     public function __construct() {
         $this->rows = new Activity();
@@ -46,6 +47,38 @@ class DashboardComponent extends Component
 
         }while ($this->goalModalData === null);
         $this->emit('itemSelected');
+
+    }
+
+    public function deletePlan($rowId)
+    {
+        $activity = $this->rows->find($rowId);
+        $activity->delete();
+        $this->closeDropdown();
+    }
+
+    public function closeDropdown()
+    {
+        // Emit a Livewire event to close the dropdown
+        $this->emit('closeDropdown');
+    }
+
+    public function openEditForm($rowId)
+    {
+        dd($rowId);
+        // $this->editGoalId = $this->set_goal->find($goalIndex)->goal['id'];
+        // $this->editobjectiveId = $this->set_goal->find($goalIndex)->goal['name'];
+        // $this->editStryategyId = $this->set_goal->find($goalIndex)->goal['name'];
+        // $this->editActionId = $this->set_goal->find($goalIndex)->goal['name'];
+        // $this->editSubActionId = $this->set_goal->find($goalIndex)->goal['name'];
+        
+
+        
+        // Emit a Livewire event to open the dropdown
+        $this->emit('openEditForm');
+    }
+
+    public function editExistingOne(){
 
     }
 

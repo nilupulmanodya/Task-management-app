@@ -48,4 +48,7 @@ class GoalController extends Controller
         return view('funding_tables')->with('activity_id', $data['activity_id']);
 
     }
+
+
+    
 }

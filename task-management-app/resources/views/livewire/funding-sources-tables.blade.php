@@ -2,7 +2,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th class="th-header table-lable" colspan="5">Funding Sources</th>
+                <th class="th-header table-lable" colspan="6">Funding Sources</th>
             </tr>
             <tr>
                 <th class="th-header">No</th>
@@ -10,6 +10,7 @@
                 <th class="th-header">Units</th>
                 <th class="th-header">Unit Charge (Rs.)</th>
                 <th class="th-header">Amount (Rs.)</th>
+                <th class="th-header"></th>
             </tr>
         </thead>
         <tbody>
@@ -20,13 +21,20 @@
                     <td>{{ $item['units'] == 0 ? '' : $item['units'] }}</td>
                     <td>{{ $item['Unit_charges'] ? '' : $item['Unit_charges'] }}</td>
                     <td>{{ $item['amounts'] }}</td>
+                    <td><div class="dropdown">
+                        <a style="cursor:pointer;" id="delete-funding" wire:click="deleteFundingSource({{ $item['id'] }})">
+                            <!-- Add your setting icon here -->
+                            <i class="fa fa-trash" style="color: red"></i>
+                        </a>
+                    </div>
+                </td>
                 </tr>
                 @php
                     $totalPrice += $item['amounts'];
                 @endphp
             @endforeach
             <tr>
-                <th colspan="5">
+                <th colspan="6">
                     <button type="button" class="btn btn-primary float-right" data-toggle="modal"
                         data-target="#rowAddModal" data-whatever="@mdo">Add New Record</button>
                 </th>
@@ -35,7 +43,7 @@
                 <td colspan="4" class="fulltotal">
                     <b> Total (Rs.)</b>
                 </td>
-                <td class="fulltotal">
+                <td colspan="2" class="fulltotal">
                     {{ $totalPrice }}
                 </td>
             </tr>
