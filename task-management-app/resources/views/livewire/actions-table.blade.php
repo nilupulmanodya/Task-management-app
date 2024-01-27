@@ -22,7 +22,7 @@
                         <i class="fa fa-cog"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" style="position: absolute; top: -1.5rem; left: -150px; right: 0;">
-                        {{-- <a class="dropdown-item" wire:click="openEditForm({{ $action->id }})">Edit</a> --}}
+                        <a class="dropdown-item" wire:click="openEditForm({{ $action->id }})">Edit</a>
                         <a class="dropdown-item" wire:click="deleteActivity({{ $action->id }})">Delete</a>
                     
                     </div>

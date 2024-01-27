@@ -54,9 +54,10 @@
                                 <i class="fa fa-cog"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" style="position: absolute; top: -1.5rem; left: -150px; right: 0;">
-                                @if (auth()->user()->id = $item->user_id)
-                                    <a class="dropdown-item" href="{{ route('activity.update', $item->id) }}" >Edit</a>
+                                @if (auth()->user()->id == $item->user_id)
+                                    <a class="dropdown-item" href="{{ route('activity.edit', $item->id) }}" >Edit</a>
                                 @endif
+                                {{-- <a class="dropdown-item" href="{{ route('activity.edit')}}">Edit</a> --}}
                                 <a class="dropdown-item" wire:click="deletePlan({{ $item->id }})">Delete</a>
                             
                             </div>

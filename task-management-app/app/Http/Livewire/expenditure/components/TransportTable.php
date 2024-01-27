@@ -71,4 +71,9 @@ class TransportTable extends Component
         $this->newTransportTotal = null;
     }
 
+    public function deleteTransport($id){
+        $transport = $this->transports->find($id);
+        $transport->delete();
+    }
+
 }

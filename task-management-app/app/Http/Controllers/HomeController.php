@@ -75,5 +75,11 @@ class HomeController extends Controller
     }
 
 
+    public function edittask($activity_id){
+        $response['activity_id'] = $activity_id;
+        return view('edit/edit_goals')->with($response);
+   }
+
+
   
 }

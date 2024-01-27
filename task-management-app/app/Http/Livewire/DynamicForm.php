@@ -101,7 +101,7 @@ class DynamicForm extends Component
 
     public function getObjectives(){
         $selectedGoal = $this->goal->find($this->goalIds);
-        // dd($selectedGoal);
+        // dd($selectedGoal->objectives);
         return $selectedGoal->objectives;
     }
 
@@ -151,17 +151,17 @@ class DynamicForm extends Component
         $this->emit('closeDropdown');
     }
 
-    public function openEditForm($goalIndex)
-    {
-        $this->editGoalId = $this->set_goal->find($goalIndex)->goal['id'];
-        $this->editobjectiveId = $this->set_goal->find($goalIndex)->objective['id'];
-        $this->editStryategyId = $this->set_goal->find($goalIndex)->strategy['id'];
-        $this->editActionId = $this->set_goal->find($goalIndex)->action['id'];
-        $this->editSubActionId = $this->set_goal->find($goalIndex)->subAction['id'];
-        // dd($this->editGoalId, $this->editobjectiveId, $this->editStryategyId, $this->editActionId,  $this->editSubActionId);
-        // Emit a Livewire event to open the dropdown
-        $this->emit('openEditForm',$goalIndex);
-    }
+    // public function openEditForm($goalIndex)
+    // {
+    //     $this->editGoalId = $this->set_goal->find($goalIndex)->goal['id'];
+    //     $this->editobjectiveId = $this->set_goal->find($goalIndex)->objective['id'];
+    //     $this->editStryategyId = $this->set_goal->find($goalIndex)->strategy['id'];
+    //     $this->editActionId = $this->set_goal->find($goalIndex)->action['id'];
+    //     $this->editSubActionId = $this->set_goal->find($goalIndex)->subAction['id'];
+    //     // dd($this->editGoalId, $this->editobjectiveId, $this->editStryategyId, $this->editActionId,  $this->editSubActionId);
+    //     // Emit a Livewire event to open the dropdown
+    //     $this->emit('openEditForm',$goalIndex);
+    // }
 
 }
 

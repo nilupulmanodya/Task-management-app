@@ -19,7 +19,7 @@
                     <td>{{ $item['unit_cost'] }}</td>
                     <td>{{ $item['total'] }}</td>
                     <td><div class="dropdown">
-                        <a style="cursor:pointer;" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a style="cursor:pointer;" id="delete-other" wire:click="deleteOther({{ $item['id'] }})">
                             <!-- Add your setting icon here -->
                             <i class="fa fa-trash" style="color: red;"></i>
                         </a>

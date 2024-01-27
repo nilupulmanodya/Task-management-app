@@ -71,4 +71,9 @@ class SubsistanceTable extends Component
         $this->newSubsistanceCosts = null;
         $this->newSubsistanceTotal = null;
     }
+
+    public function deleteSubsisitace($id){
+        $subsistance = $this->subsistance->find($id);
+        $subsistance->delete();
+    }
 }

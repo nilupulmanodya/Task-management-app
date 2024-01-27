@@ -25,6 +25,7 @@
                 <select class="form-control" name="GoalObjective"
                     wire:model='objectiveIds' id="selectObjectives">
                     <option selected value=''>Select an Objective</option>
+                    @dump($allObjectives)
                     @if ($allObjectives)
                         @foreach ($allObjectives as $objective)
                             <option value="{{ $objective->id }}">{{ $objective->name }}</option>

@@ -57,6 +57,7 @@ Route::get('/activity/{activity_id}/tables', [TableController::class, 'index'])-
 Route::get('/activity/tables/word/download',[WordFileController::class, 'store'])->name('activity.table.download');
 Route::get('/activity/actions/form', [ActionController::class, 'index'])->name('activity.action.form');
 
-route::get('/deletetask/{id}',[HomeController::class,'deletetask'])->name('activity.delete');
+Route::get('/deletetask/{id}',[HomeController::class,'deletetask'])->name('activity.delete');
+Route::get('/activity/edit/{activity_id}', [HomeController::class, 'edittask'])->name('activity.edit');
 
 
