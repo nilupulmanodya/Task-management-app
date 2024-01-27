@@ -26,9 +26,9 @@ class GoalController extends Controller
 
 
     }
-    public function index()
+    public function index($activity_id)
     {
-        return view('add_goals');
+        return view('add_goals', ['activity_id' => $activity_id]);
     }
 
 
@@ -48,4 +48,7 @@ class GoalController extends Controller
         return view('funding_tables')->with('activity_id', $data['activity_id']);
 
     }
+
+
+    
 }

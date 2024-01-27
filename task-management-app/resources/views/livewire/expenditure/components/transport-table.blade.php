@@ -2,7 +2,7 @@
     <table class="table" style="margin-block-end:auto;">
         <thead>
             <tr>
-                <th class="th-header table-lable" colspan="6">Expenditure Details</th>
+                <th class="th-header table-lable" colspan="7">Expenditure Details</th>
             </tr>
             <tr>
                 <th class="th-header">No</th>
@@ -11,6 +11,7 @@
                 <th class="th-header">Total Km</th>
                 <th class="th-header">Unit Cost</th>
                 <th class="th-header">Total (Rs.)</th>
+                <th class="th-header"></th>
             </tr>
         </thead>
         <tbody>
@@ -22,19 +23,26 @@
                     <td>{{ $item['toal_km'] }}</td>
                     <td>{{ $item['unit_cost'] }}</td>
                     <td>{{ $item['total'] }}</td>
+                    <td><div class="dropdown">
+                        <a style="cursor:pointer;" id="delete-transport" wire:click="deleteTransport({{ $item['id'] }})">
+                            <!-- Add your setting icon here -->
+                            <i class="fa fa-trash" style="color: red;"></i>
+                        </a>
+                    </div>
+                </td>
                 </tr>
                 @php
                     $totalPrice += $item['total'];
                 @endphp
             @endforeach
             <tr>
-                <td colspan="6">
+                <td colspan="7">
                     <button type="button" class="btn btn-primary float-right" data-toggle="modal"
                         data-target="#rowAddModal1" data-whatever="@mdo">Add New Transport</button>
                 </td>
             </tr>
             <tr>
-                <td colspan="5" class="total-amount">
+                <td colspan="6" class="total-amount">
                     Total (Rs.)
                 </td>
                 <td class="total-amount">

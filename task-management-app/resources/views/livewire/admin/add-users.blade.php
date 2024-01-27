@@ -7,7 +7,7 @@
     </div>
   
     <div class="section-1">
-        <form wire:submit.prevent="addUser" method="POST" wire:ignor>
+        <form wire:submit.prevent="addUser" method="POST" wire:ignore.self>
             @csrf
             <div class="form-group">
                 <label for="nameInput">Name</label>

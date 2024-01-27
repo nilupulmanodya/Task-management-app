@@ -71,4 +71,9 @@ class OthersTable extends Component
         $this->newOthersCost = null;
         $this->newOthersTotal = null;
     }
+
+    public function deleteOther($id){
+        $other = $this->others->find($id);
+        $other->delete();
+    }
 }

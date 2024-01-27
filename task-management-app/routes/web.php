@@ -49,13 +49,15 @@ Route::group(['middleware'=>'admins'],function(){
 
 
 Route::post('/activity/store', [HomeController::class, 'store'])->name('activity.store');
-Route::get('/activity/goal', [GoalController::class, 'index'])->name('activity.goal');
+Route::get('/activity/update/{id}', [ActionController::class, 'update'])->name('activity.update');
+Route::get('/activity/{activity_id}/goal', [GoalController::class, 'index'])->name('activity.goal');
 Route::post('/activity/goal/store', [GoalController::class, 'store'])->name('activity.goal.store');
 
-Route::get('/activity/tables', [TableController::class, 'index'])->name('activity.table');
+Route::get('/activity/{activity_id}/tables', [TableController::class, 'index'])->name('activity.table');
 Route::get('/activity/tables/word/download',[WordFileController::class, 'store'])->name('activity.table.download');
 Route::get('/activity/actions/form', [ActionController::class, 'index'])->name('activity.action.form');
 
-route::get('/deletetask/{id}',[HomeController::class,'deletetask'])->name('activity.delete');
+Route::get('/deletetask/{id}',[HomeController::class,'deletetask'])->name('activity.delete');
+Route::get('/activity/edit/{activity_id}', [HomeController::class, 'edittask'])->name('activity.edit');
 
 

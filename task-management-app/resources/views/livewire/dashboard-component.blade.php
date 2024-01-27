@@ -18,10 +18,6 @@
         @foreach ($items as $item)
             <tr>
                 <td><a cursor="pointer" wire:click="selectItem({{ $item->id }})">{{ $item->activity_title }}</a>
-                    <br> <br>
-                    @if (auth()->user()->id = $item->user_id)
-                        <a href="" class="btn btn-dark">Edit</a>
-                    @endif
                 </td>
 
                 <td>
@@ -52,8 +48,22 @@
                     </td>
 
                     <td>
-                        <a class="btn btn-danger" href="{{ route('activity.delete', $item->id) }}">Delete 
-                        </a>
+                        <div class="dropdown">
+                            <a style="cursor:pointer;" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <!-- Add your setting icon here -->
+                                <i class="fa fa-cog"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" style="position: absolute; top: -1.5rem; left: -150px; right: 0;">
+                                @if (auth()->user()->id == $item->user_id)
+                                    <a class="dropdown-item" href="{{ route('activity.edit', $item->id) }}" >Edit</a>
+                                @endif
+                                {{-- <a class="dropdown-item" href="{{ route('activity.edit')}}">Edit</a> --}}
+                                <a class="dropdown-item" wire:click="deletePlan({{ $item->id }})">Delete</a>
+                            
+                            </div>
+                        </div>
+                        {{-- <a class="btn btn-danger" href="{{ route('activity.delete', $item->id) }}">Delete 
+                        </a> --}}
 
                     </td>
 

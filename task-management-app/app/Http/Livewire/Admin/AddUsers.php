@@ -50,5 +50,6 @@ class AddUsers extends Component
         $passwordConfirmation = $validatedData['passwordConfirmInput'];
         $this->user->create($data);
         $this->reset();
+        return redirect()->back();
     }
 }
